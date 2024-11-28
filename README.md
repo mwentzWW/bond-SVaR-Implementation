@@ -17,3 +17,7 @@ A simple Streamlit app template for you to modify!
    ```
    $ streamlit run streamlit_app.py
    ```
+
+### Data Sources
+
+[Treasury Interest Rates Par Yield Curve](https://home.treasury.gov/interest-rates-data-csv-archive)
