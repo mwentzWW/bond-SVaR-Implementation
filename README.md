@@ -1,8 +1,6 @@
-# 🎈 Blank app template
+# Project Scope
 
-A simple Streamlit app template for you to modify!
-
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+My goal for this project is to learn the basics of streamlit apps and deployment. I'll create a simple stressed value at risk (SVaR) tool for treasury bond analysis based on public data.
 
 ### How to run it on your own machine
 
