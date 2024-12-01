@@ -1,8 +1,8 @@
 # Project Scope
 
-My goal for this project is to learn the basics of streamlit apps and deployment. I'll create a simple stressed value at risk (SVaR) tool for treasury bond analysis based on public data.
+My goal for this project is to learn the basics of streamlit apps and deployment. I'll create a simple historical value at risk (VaR) tool for treasury product analysis based on public data.
 
-### How to run it on your own machine
+## How to run it on your own machine
 
 1. Install the requirements
 
@@ -16,6 +16,6 @@ My goal for this project is to learn the basics of streamlit apps and deployment
    $ streamlit run streamlit_app.py
    ```
 
-### Data Sources
+## Data Sources
 
 [Treasury Interest Rates Par Yield Curve](https://home.treasury.gov/interest-rates-data-csv-archive)
