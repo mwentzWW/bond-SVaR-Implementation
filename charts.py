@@ -22,7 +22,12 @@ def histogram_chart(df: pd.DataFrame, x: str = "10 Yr"):
 
     fig = px.histogram(df, x=x)
 
-    fig.add_vline(x=-5, line_width=3, line_dash="dash", line_color="red")
+    std = df[x].std()
+
+    mean = df[x].mean()
+
+    fig.add_vline(x=(mean - 2*std), line_width=3, line_dash="dash", line_color="red")
+    fig.add_vline(x=(mean + 2*std), line_width=3, line_dash="dash", line_color="red")
     
     return fig
 
@@ -35,3 +40,15 @@ def cumulative_dist_chart(df: pd.DataFrame, x: str = "10 Yr"):
     fig = px.ecdf(df[x], markers=True, lines=True, marginal="histogram")
     
     return fig
+
+def rates_curve_chart(df: pd.DataFrame):
+
+   # TODO: This long dataframe is too cumbersone or the animation is too long to load
+    
+   df.reset_index(inplace=True)
+
+   df_long = pd.melt(df, id_vars=['Date'], var_name='Tenor')
+    
+   fig = px.line(df_long, x='Tenor', y='value', animation_frame="Date", line_shape='spline')
+    
+   return fig
