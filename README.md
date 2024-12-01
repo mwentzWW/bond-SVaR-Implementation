@@ -2,6 +2,8 @@
 
 My goal for this project is to learn the basics of streamlit apps and deployment. I'll create a simple historical value at risk (VaR) tool for treasury product analysis based on public data.
 
+For this project, we are calling the historical VaR the Stressed VaR (SVaR) since it includes stress periods in the past.
+
 ## How to run it on your own machine
 
 1. Install the requirements
