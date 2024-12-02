@@ -48,8 +48,11 @@ st.markdown(
         * [Video Link](https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/resources/lecture-7-value-at-risk-var-models/)
         * [Lecture Notes](https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/resources/mit18_s096f13_lecnote7/)
     * [CME Calculate Dollar Value of Basis Point (DVBP or DV01)](https://www.cmegroup.com/trading/interest-rates/files/Calculating_the_Dollar_Value_of_a_Basis_Point.pdf)
-    * [CFI Duration](https://corporatefinanceinstitute.com/resources/fixed-income/duration/)
-
+    * [Corporate Finance Institute (CFI) Site](https://corporatefinanceinstitute.com/)
+        * [Matrix Pricing](https://corporatefinanceinstitute.com/resources/career-map/sell-side/capital-markets/matrix-pricing/)
+        * [Corporate Bond Valuation](https://corporatefinanceinstitute.com/resources/valuation/corporate-bond-valuation/)
+        * [Duration](https://corporatefinanceinstitute.com/resources/fixed-income/duration/)
+    * [openstax Principles of Finance 10.2 Bond Valuation](https://openstax.org/books/principles-finance/pages/10-2-bond-valuation)
     
     ## Data Source
 
