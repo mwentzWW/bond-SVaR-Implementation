@@ -76,7 +76,7 @@ with chart_col:
             placeholder="Select a Treasury...",
             )
         
-        rel_toggle = st.toggle("Switch to relative charts (Defaults to absolute changes)")
+       # rel_toggle = st.toggle("Switch to relative charts (Defaults to absolute changes)")
 
         submitted = st.form_submit_button("Submit")
 
@@ -84,13 +84,15 @@ with chart_col:
 
         st.write("You selected:", option)
 
-        if rel_toggle:
+        # if rel_toggle:
 
-            df_diff = df_rel_diff
+        #     df_diff = df_rel_diff
 
-        else:
+        # else:
 
-            df_diff = df_abs_diff
+        #     df_diff = df_abs_diff
+
+        df_diff = df_abs_diff
 
         st.dataframe(df_diff[option].describe(percentiles=[0.01, 0.05, 0.10, 0.25, 0.50, 0.75, 0.90, 0.95, 0.99]).transpose())
 
