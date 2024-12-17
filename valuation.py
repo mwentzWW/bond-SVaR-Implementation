@@ -12,6 +12,8 @@ class Treasury:
     first_pay: str = field(init=False)
     maturity: str = field(init=False)
     cashflows: pd.DataFrame = field(init=False)
+    eff_duration: float = field(init=False)
+    dv01: float = field(init=False)
 
     issue_ytm_percent: float = field(init=False)  # yield to maturity given issue price
 
@@ -33,11 +35,13 @@ class Treasury:
 
        self.issue_ytm_percent = self.yield_to_maturity()*100
 
+       self.risk_analytics()
+
     def generate_cashflows(self):
         """Generates cashflow dataframe given initial values"""
 
-         # no payment made on issue date
-        n_periods = self.term_years*(12/self.coupon_payment_frequency) - 1
+         # add one because initial date isn't included in payments
+        n_periods = self.term_years*(12/self.coupon_payment_frequency) + 1
 
         date_range = pd.date_range(
             start=self.issue_date, 
@@ -99,6 +103,33 @@ class Treasury:
 
             return 0.0
 
-bond = Treasury()
+    def revalue(self, ytm_delta: float) -> tuple[float, pd.DataFrame]:
+        """Given yield change in basis points, revalue cashflows.
+        
+            returns: price, dataframe
+        """
 
-print(bond)
+        delta_decimal = ytm_delta/10_000
+
+        df = self.cashflows.copy(deep=True)
+
+        df['discounted_value'] = df['total_payment'] / ((1 + (self.issue_ytm_percent/100) + delta_decimal)**(df['delta_years']))
+
+        npv_price = (df['discounted_value'].sum()/df['principal'].sum())*100
+
+        return npv_price, df
+
+    def risk_analytics(self, shock_bps: float=10):
+        """Computes the initial effective duration and DV01"""
+
+        shock_up_price, _ = self.revalue(shock_bps)
+
+        shock_down_price, _ = self.revalue(-shock_bps)
+
+        self.eff_duration = (shock_down_price - shock_up_price)/(2*(shock_bps/10_000)*self.issue_price)
+
+        self.dv01 = self.eff_duration*(self.position_millions*10**6)*(self.issue_price/100)/10_000
+
+    def price_vs_rates(self):
+        # TODO: Input yields and return prices to chart
+        pass
