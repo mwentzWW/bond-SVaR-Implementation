@@ -56,8 +56,8 @@ st.markdown(
     
     ## Data Source
 
-    [Treasury Interest Rates Par Yield Curve](https://home.treasury.gov/interest-rates-data-csv-archive)
-
+    * [Treasury Interest Rates Par Yield Curve](https://home.treasury.gov/interest-rates-data-csv-archive)
+    * [Treasury Auctions](https://treasurydirect.gov/auctions/announcements-data-results/announcement-results-press-releases/previous-announcements-and-results/)
 
 """
 )
